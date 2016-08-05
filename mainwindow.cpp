@@ -29,10 +29,9 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-//    QString convertcommand = QString("transmission-show -m %1").arg(torrentfile);
     QProcess sh;
     sh.start("sh");
-    sh.write("transmission-show -m ");
+    sh.write("transmission-show -m "+torrentfile.toLatin1());
     sh.closeWriteChannel();
     sh.waitForFinished();
     QByteArray magnetoutput = sh.readAll();
